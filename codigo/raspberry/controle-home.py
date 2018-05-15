@@ -1,3 +1,7 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+import paho.mqtt.client as mqtt
+
 import serial
 
 LOCAL = '' # PARTE DA CASA
@@ -31,8 +35,10 @@ def on_connect(client, userdata, flags, rc):
 
 # Callback - chamado quando alguma mensagem é recebida
 def on_message(client, userdata, msg):
-	print("Topico: "+msg.topic+" - Mensagem recebida: "+str(msg.payload)) 
-	if (str(msg.payload) == "Hello Word"):
+    print msg
+    print msg.topic
+    print("Topico: "+msg.topic+" - Mensagem recebida: "+str(msg.payload)) 
+    if (str(msg.payload) == "Hello Word"):
        print "Hello Word"
        return 0
 
