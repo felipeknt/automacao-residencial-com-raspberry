@@ -39,72 +39,72 @@ void loop{
   digitalWrite(lamp01,LOW);
   break;
 
-  case  'e': // LIGA LUZ LAMP01
+  case  'e': // LIGA LUZ LAMP02
   digitalWrite(lamp02,HIGH);
   break;
-  case  'r': // DESLIGA LUZ LAMP01
+  case  'r': // DESLIGA LUZ LAMP02
   digitalWrite(lamp02,LOW);
   break;
 
-  case  't': // LIGA LUZ LAMP01
+  case  't': // LIGA LUZ LAMP03
   digitalWrite(lamp03,HIGH);
   break;
-  case  'y': // DESLIGA LUZ LAMP01
+  case  'y': // DESLIGA LUZ LAMP03
   digitalWrite(lamp03,LOW);
   break;
 
-  case  'u': // LIGA LUZ LAMP01
+  case  'u': // LIGA LUZ LAMP04
   digitalWrite(lamp04,HIGH);
   break;
-  case  'i': // DESLIGA LUZ LAMP01
+  case  'i': // DESLIGA LUZ LAMP04
   digitalWrite(lamp04,LOW);
   break;
 
 
-  case  'o': // LIGA LUZ LAMP01
+  case  'o': // LIGA LUZ LAMP05
   digitalWrite(lamp05,HIGH);
   break;
-  case  'p': // DESLIGA LUZ LAMP01
+  case  'p': // DESLIGA LUZ LAMP05
   digitalWrite(lamp05,LOW);
   break;
 
-  case  'a': // LIGA LUZ LAMP01
+  case  'a': // LIGA LUZ LAMP06
   digitalWrite(lamp06,HIGH);
   break;
-  case  's': // DESLIGA LUZ LAMP01
+  case  's': // DESLIGA LUZ LAMP06
   digitalWrite(lamp06,LOW);
   break;
 
 
-  case  'd': // LIGA LUZ LAMP01
+  case  'd': // LIGA LUZ LAMP07
   digitalWrite(lamp07,HIGH);
   break;
-  case  'f': // DESLIGA LUZ LAMP01
+  case  'f': // DESLIGA LUZ LAMP07
   digitalWrite(lamp07,LOW);
   break;
 
-  case  'g': // LIGA LUZ LAMP01
+  case  'g': // MOVER SERVO 90 GRAUS
   porta.write(90);
   break;
-  case  'h': // DESLIGA LUZ LAMP01
+  case  'h': // MOVER SERVO 0 GRAUS
   porta.write(0);
   break;
 
 
-  case  'j': // LIGA LUZ LAMP01
+  case  'j': // MOVER SERVO 90 GRAUS
   portao.write(90)
   break;
-  case  'k': // DESLIGA LUZ LAMP01
+  case  'k': // MOVER SERVO 0 GRAUS
   porta0.write(0);
   break;
 
-  case  'l': // DESLIGA LUZ LAMP01
+  case  'l': // LIGAR VENTILADOR
   digitalWrite(ventilador,HIGH);
   break;
-  case 'z':
+  case 'z': // DESLIGAR VENTILADOR
   digitalWrite(ventilador,LOW);
   break;
-    
+
   }
 
 }
