@@ -94,14 +94,18 @@ void loop{
   case  'j': // MOVER SERVO 90 GRAUS
   portao.write(90)
   break;
+
   case  'k': // MOVER SERVO 0 GRAUS
-  porta0.write(0);
+  porta.write(0);
+  break;
+  case  'l': // MOVER SERVO 90 GRAUS
+  portao.write(45)
   break;
 
-  case  'l': // LIGAR VENTILADOR
+  case  'z': // LIGAR VENTILADOR
   digitalWrite(ventilador,HIGH);
   break;
-  case 'z': // DESLIGAR VENTILADOR
+  case 'x': // DESLIGAR VENTILADOR
   digitalWrite(ventilador,LOW);
   break;
 
