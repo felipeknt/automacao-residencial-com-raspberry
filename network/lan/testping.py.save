@@ -1,0 +1,10 @@
+import pyping
+
+r = pyping.ping('www.google.com')    # But it's udp, not real icmp
+print "GOOGLE PING [%s,%s,%s] " %
+ (r.max_rtt,r.avg_rtt,r.min_rtt)
+localnet = pyping.ping("192.168.0.2")
+print "IoT ping [%s,%s,%s] " % (localnet.max_rtt,localnet.avg_rtt,localnet.min_rtt)
+
+
+
