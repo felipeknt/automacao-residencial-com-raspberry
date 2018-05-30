@@ -3,7 +3,15 @@
 
 import paho.mqtt.client as mqtt
 import serial
-
+import networktools
+"""
+>>> networktools.local_ip
+<function local_ip at 0x7f776296d6e0>
+>>> networktools.local_ip()
+'192.168.0.9'
+>>> networktools.local_ip()
+'192.168.0.9'
+"""
 TOPIC = "/home/#"
 
 #Callback  - chamada quando a conexao eh estabelecida
@@ -91,7 +99,7 @@ client = mqtt.Client()
 client.on_connect = on_connect   #configura callback (de quando eh estabelecida a conexao)
 client.on_message = on_message   #configura callback (de quando eh recebida uma mensagem)
 
-client.connect("127.0.0.1", 1883, 60)  #tenta se conectar ao broker na porta 1883 (o parametro '60' eh o tempo de keepalive). Nesse caso, se nenhuma mensagem for trafegada em ate 60 segundos, eh enviado um ping ao broker de tempos em tempos (para manter a conexao ativa)
+client.connect(networktools.local_ip(), 1883, 60)  #tenta se conectar ao broker na porta 1883 (o parametro '60' eh o tempo de keepalive). Nesse caso, se nenhuma mensagem for trafegada em ate 60 segundos, eh enviado um ping ao broker de tempos em tempos (para manter a conexao ativa)
 
 #Loop infinito aguardando recepcao de mensagens. Esta funcao eh blocante.
 client.loop_forever()
