@@ -1,20 +1,20 @@
 ## TEST do APP
 
 ### Quarto 01
-  mosquitto_pub -h 192.168.0.9 -t /home/QUARTO/01  -m "OFF"
+#####  mosquitto_pub -h 192.168.0.9 -t /home/QUARTO/01  -m "OFF"
   
-  mosquitto_pub -h 192.168.0.9 -t /home/QUARTO/01  -m "ON"
+#####  mosquitto_pub -h 192.168.0.9 -t /home/QUARTO/01  -m "ON"
 
 ### SALA 01
   
-  mosquitto_pub -h 192.168.0.9 -t "/home/SALA/01" -m "OFF"
+#####  mosquitto_pub -h 192.168.0.9 -t "/home/SALA/01" -m "OFF"
   
-  mosquitto_pub -h 192.168.0.9 -t "/home/SALA/01" -m "ON"
+#####  mosquitto_pub -h 192.168.0.9 -t "/home/SALA/01" -m "ON"
 
 ### COZINHA 01   
 
-  mosquitto_pub -h 192.168.0.9 -t "/home/COZINHA/01" -m "OFF"
-  mosquitto_pub -h 192.168.0.9 -t "/home/COZINHA/01" -m "ON"
+#####  mosquitto_pub -h 192.168.0.9 -t "/home/COZINHA/01" -m "OFF"
+#####  mosquitto_pub -h 192.168.0.9 -t "/home/COZINHA/01" -m "ON"
  
 ### GARAGEM 01    
   
