@@ -4,7 +4,7 @@
 import paho.mqtt.client as mqtt
 import serial
 
-TOPIC = "home/#"
+TOPIC = "/home/#"
 
 #Callback  - chamada quando a conexao eh estabelecida
 def on_connect(client, userdata, flags, rc):
@@ -17,14 +17,14 @@ def on_connect(client, userdata, flags, rc):
 def on_message(client, userdata, msg):
     print("Topico: "+msg.topic+" - Mensagem recebida: "+str(msg.payload)) 
 #### LAMPADAS APP 
-    if msg.topic == "home/quarto/01":
+    if msg.topic == "/home/QUARTO/01":
      if (str(msg.payload) == "ON"):
         print "QUARTO 1 - ON"
         return 0
      if (str(msg.payload) == "OFF"):
         print "QUARTO 1 - OFF"
         return 0   
-    if msg.topic == "home/SALA/01":
+    if msg.topic == "/home/SALA/01":
      if (str(msg.payload) == "ON"):
         print "SALA 01 - ON"
         return 0
@@ -32,7 +32,7 @@ def on_message(client, userdata, msg):
         print "SALA 01 - OFF"
         return 0   
 
-    if msg.topic == "home/COZINHA/01":
+    if msg.topic == "/home/COZINHA/01":
      if (str(msg.payload) == "ON"):
         print "COZINHA 01 - ON"
         return 0
@@ -40,7 +40,7 @@ def on_message(client, userdata, msg):
         print "COZINHA 01 - OFF"
         return 0   
 
-    if msg.topic == "home/GARAGEM/01":
+    if msg.topic == "/home/GARAGEM/01":
      if (str(msg.payload) == "ON"):
         print "GARAGEM 01 - ON"
         return 0
@@ -48,7 +48,7 @@ def on_message(client, userdata, msg):
         print "GARAGEM 01 - OFF"
         return 0   
 
-    if msg.topic == "home/QUARTO/02":
+    if msg.topic == "/home/QUARTO/02":
      if (str(msg.payload) == "ON"):
         print "QUARTO 02 - ON"
         return 0
@@ -56,7 +56,7 @@ def on_message(client, userdata, msg):
         print "QUARTO 02 - OFF"
         return 0   
 
-    if msg.topic == "home/CORREDOR/01":
+    if msg.topic == "/home/CORREDOR/01":
      if (str(msg.payload) == "ON"):
         print "CORREDOR 01 - ON"
         return 0
@@ -64,7 +64,7 @@ def on_message(client, userdata, msg):
         print "CORREDOR 01 - OFF"
         return 0   
 ####  PORTÃO GARAGEM
-    if msg.topic == "home/PORTA/01":
+    if msg.topic == "/home/PORTA/01":
      if (str(msg.payload) == "ON"):
         print "PORTA 01 - ON"
         return 0
@@ -72,7 +72,7 @@ def on_message(client, userdata, msg):
         print "PORTA 01 - OFF"
         return 0   
 
-    if msg.topic == "home/PORTAO/01":
+    if msg.topic == "/home/PORTAO/01":
      if (str(msg.payload) == "ON"):
         print "PORTAO 01 - ON"
         return 0
