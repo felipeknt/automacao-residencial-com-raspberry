@@ -14,6 +14,8 @@ import networktools
 """
 TOPIC = "/home/#"
 
+test = networktools.test_cloud()
+
 #Callback  - chamada quando a conexao eh estabelecida
 def on_connect(client, userdata, flags, rc):
     print("Conectado ao broker. Retorno da conexao: "+str(rc))
