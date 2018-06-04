@@ -23,17 +23,8 @@ def on_connect(client, userdata, flags, rc):
     # Informa que o topico que este subscriber ira "escutar" eh o "MQTTEdison" 
     client.subscribe([(TOPIC,0)])
 
-def banner():
-	ip = networktools.local_ip()
-	print "*"* 50
-	print "SERVER BROKER "
-	print "LOCAL IP: ",ip
-	print "PORTA: 1883"
-
-
 # Callback - chamado quando alguma mensagem é recebida
 def on_message(client, userdata, msg):
-	banner()
     print("Topico: "+msg.topic+" - Mensagem recebida: "+str(msg.payload)) 
 #### LAMPADAS APP 
     if msg.topic == "/home/QUARTO/01":
