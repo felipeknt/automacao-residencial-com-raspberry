@@ -2,7 +2,7 @@ from os import popen,system
 import pyping
 
 def local_ip():
-   ip = popen("ifconfig | grep 'inet '").read().split(" ")[21]
+   ip = popen("ifconfig | grep 'inet '").read().split(" ")[9]
    return ip
 
 def test_cloud():
