@@ -19,12 +19,13 @@ test = networktools.test_cloud()
 # CONNECT PORT SERIAL ARDUINO UNO 
 status_port = False
 try:
- arduino = serial.Serial("/dev/ttyACM0",9600)
- status_port = True
-
+ try:   # crie um serial na porta ACM0
+   arduino = serial.Serial("/dev/ttyACM0",9600)
+   status_port = True
+ except:  # CRIA SERIAL COM ACM1
+   arduino = serial.Serial("/dev/ttyACM1",9600)
 except :
   status_port = False
-
 #Callback  - chamada quando a conexao eh estabelecida
 def on_connect(client, userdata, flags, rc):
     print("Conectado ao broker. Retorno da conexao: "+str(rc))
