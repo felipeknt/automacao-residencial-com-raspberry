@@ -97,7 +97,7 @@ def on_message(client, userdata, msg):
         print "VENTILADOR 01 - ON"
         return 0      
     
-     if (str(msg.payload) == "ON"):
+     if (str(msg.payload) == "OFF"):
         print "VENTILADOR 01 - OFF"
         return 0      
     

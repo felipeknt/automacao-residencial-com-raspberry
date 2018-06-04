@@ -50,3 +50,9 @@
   
   mosquitto_pub -h 192.168.0.9 -t "/home/PORTAO/01" -m "PARAR"
      
+### VENTILADOR 
+  
+  mosquitto_pub -h 192.168.0.7 -t "/home/VENTILADOR/01" -m "ON"
+  
+  mosquitto_pub -h 192.168.0.7 -t "/home/VENTILADOR/01" -m "OFF"
+
