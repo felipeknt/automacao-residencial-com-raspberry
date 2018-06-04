@@ -16,6 +16,15 @@ TOPIC = "/home/#"
 
 test = networktools.test_cloud()
 
+# CONNECT PORT SERIAL ARDUINO UNO 
+status_port = False
+try:
+ arduino = serial.Serial("/dev/ttyACM0",9600)
+ status_port = True
+
+except :
+  status_port = False
+
 #Callback  - chamada quando a conexao eh estabelecida
 def on_connect(client, userdata, flags, rc):
     print("Conectado ao broker. Retorno da conexao: "+str(rc))
@@ -29,79 +38,176 @@ def on_message(client, userdata, msg):
 #### LAMPADAS APP 
     if msg.topic == "/home/QUARTO/01":
      if (str(msg.payload) == "ON"):
-        print "QUARTO 1 - ON"
-        return 0
+        if status_port == True:
+         print "QUARTO 1 - ON"
+         arduino.write("q")
+         return 0
+        else:
+          print "BOARD NOT CONNECT! COMAND NOT SEND !" 
+
      if (str(msg.payload) == "OFF"):
-        print "QUARTO 1 - OFF"
-        return 0   
+        if status_port == True:
+         print "QUARTO 1 - OFF"
+         arduino.write("w")
+         return 0   
+        else:
+         print "BOARD NOT CONNECT! COMAND NOT SEND !"   
+
     if msg.topic == "/home/SALA/01":
      if (str(msg.payload) == "ON"):
+       if status_port == True:
         print "SALA 01 - ON"
+        arduino.write("e")
         return 0
+       else:
+        print "BOARD NOT CONNECT! COMAND NOT SEND !"   
+
      if (str(msg.payload) == "OFF"):
+       if status_port == True:
+        arduino.write("r") 
         print "SALA 01 - OFF"
         return 0   
-
+       else:
+        print "BOARD NOT CONNECT! COMAND NOT SEND !"   
+  
     if msg.topic == "/home/COZINHA/01":
      if (str(msg.payload) == "ON"):
+      if status_port == True:
+        arduino.write("t")
         print "COZINHA 01 - ON"
         return 0
+      else:
+        print "BOARD NOT CONNECT! COMAND NOT SEND !"   
+
      if (str(msg.payload) == "OFF"):
+      if status_port == True:
+        arduino.write("y")
         print "COZINHA 01 - OFF"
         return 0   
+      else:
+        print "BOARD NOT CONNECT! COMAND NOT SEND !"   
 
     if msg.topic == "/home/GARAGEM/01":
      if (str(msg.payload) == "ON"):
+      if status_port == True:
+        arduino.write("u")
         print "GARAGEM 01 - ON"
         return 0
+      else:
+        print "BOARD NOT CONNECT! COMAND NOT SEND !"   
+
      if (str(msg.payload) == "OFF"):
+      if status_port == True:
+        arduino.write("i")
         print "GARAGEM 01 - OFF"
         return 0   
+      else:
+        print "BOARD NOT CONNECT! COMAND NOT SEND !"   
+
 
     if msg.topic == "/home/QUARTO/02":
      if (str(msg.payload) == "ON"):
+      if status_port == True:
+        arduino.write("o")
         print "QUARTO 02 - ON"
         return 0
+      else:
+        print "BOARD NOT CONNECT! COMAND NOT SEND !"   
+
      if (str(msg.payload) == "OFF"):
+      if status_port == True:
+        arduino.write("p")
         print "QUARTO 02 - OFF"
-        return 0   
+        return 0
+      else:
+        print "BOARD NOT CONNECT! COMAND NOT SEND !"
+
+### CORREDOR 
 
     if msg.topic == "/home/CORREDOR/01":
      if (str(msg.payload) == "ON"):
+      if status_port == True:
+        arduino.write("a")
         print "CORREDOR 01 - ON"
         return 0
+      else:
+        print "BOARD NOT CONNECT! COMAND NOT SEND !"
+
      if (str(msg.payload) == "OFF"):
+      if status_port == True:
+        arduino.write("s")
         print "CORREDOR 01 - OFF"
         return 0   
-####  PORTÃO GARAGEM
+     else: 
+        print "BOARD NOT CONNECT! COMAND NOT SEND !"
+
+####  PORTA
+
     if msg.topic == "/home/PORTA/01":
      if (str(msg.payload) == "ON"):
+      if status_port == True:
+        arduino.write("d")
         print "PORTA 01 - ON"
         return 0
+      else:
+        print "BOARD NOT CONNECT! COMAND NOT SEND !"
+
      if (str(msg.payload) == "OFF"):
+      if status_port == True:
+        arduino.write("f")
         print "PORTA 01 - OFF"
         return 0   
+      else:
+        print "BOARD NOT CONNECT! COMAND NOT SEND !"
+
+
+### PORTAO
 
     if msg.topic == "/home/PORTAO/01":
      if (str(msg.payload) == "ON"):
+      if status_port == True:
+        arduino.write("g")
         print "PORTAO 01 - ON"
         return 0
+      else:
+        print "BOARD NOT CONNECT! COMAND NOT SEND !"
+
      if (str(msg.payload) == "PARAR"):
+      if status_port == True:   
+        arduino.write("h")
         print "PORTAO 01 - PARAR"
         return 0   
+      else:
+        print "BOARD NOT CONNECT! COMAND NOT SEND !"
      if (str(msg.payload) == "OFF"):
+      if status_port == True:
+        arduino.write("j")
         print "PORTAO 01 - OFF"
-        return 0   
+        return 0 
+      else:
+        print "BOARD NOT CONNECT! COMAND NOT SEND !"
+
+### VENTILADOR        
+
     if msg.topic == "/home/VENTILADOR/01":
      if (str(msg.payload) == "ON"):
+       if status_port == True:
+        arduino.write("z")
         print "VENTILADOR 01 - ON"
         return 0      
+       else:
+        print "BOARD NOT CONNECT! COMAND NOT SEND !"          
     
      if (str(msg.payload) == "OFF"):
+      if status_port == True:
+        arduino.write("x")
         print "VENTILADOR 01 - OFF"
         return 0      
+      else:
+        print "BOARD NOT CONNECT! COMAND NOT SEND !"        
     
-    
+
+
     
 #programa principal
 client = mqtt.Client()
