@@ -92,15 +92,8 @@ def on_message(client, userdata, msg):
      if (str(msg.payload) == "OFF"):
         print "PORTAO 01 - OFF"
         return 0   
-    if msg.topic == "/home/VENTILADOR/01":
-     if (str(msg.payload) == "ON"):
-        print "VENTILADOR 01 - ON"
-        return 0      
-    
-     if (str(msg.payload) == "ON"):
-        print "VENTILADOR 01 - OFF"
-        return 0      
-    
+
+
     
     
 #programa principal
@@ -108,7 +101,7 @@ client = mqtt.Client()
 client.on_connect = on_connect   #configura callback (de quando eh estabelecida a conexao)
 client.on_message = on_message   #configura callback (de quando eh recebida uma mensagem)
 
-client.connect(networktools.local_ip(), 1883, 60)  #tenta se conectar ao broker na porta 1883 (o parametro '60' eh o tempo de keepalive). Nesse caso, se nenhuma mensagem for trafegada em ate 60 segundos, eh enviado um ping ao broker de tempos em tempos (para manter a conexao ativa)
+client.connect("192.168.0.9", 1883, 60)  #tenta se conectar ao broker na porta 1883 (o parametro '60' eh o tempo de keepalive). Nesse caso, se nenhuma mensagem for trafegada em ate 60 segundos, eh enviado um ping ao broker de tempos em tempos (para manter a conexao ativa)
 
 #Loop infinito aguardando recepcao de mensagens. Esta funcao eh blocante.
 client.loop_forever()
